@@ -12,7 +12,7 @@ services:
     container_name: pg
     restart: always
     # ports: # 生产环境建议不要暴露
-      # - 5432:5432
+    #   - 5432:5432
     networks:
       - fastgpt
     environment:
@@ -124,7 +124,7 @@ services:
     container_name: mysql
     restart: always
     # ports:
-      # - 3306:3306
+    #   - 3306:3306
     networks:
       - fastgpt
     command: --default-authentication-plugin=mysql_native_password
@@ -160,7 +160,7 @@ services:
       - INITIAL_ROOT_TOKEN=fastgpt
     volumes:
       - ./oneapi:/data
-
+      
   m3e-large-api:
     image: stawky/m3e-large-api:latest
     #image: registry.cn-hangzhou.aliyuncs.com/fastgpt_docker/m3e-large-api:latest
@@ -175,6 +175,5 @@ services:
             - driver: nvidia
               device_ids: ['0']
               capabilities: [gpu]
-
 networks:
   fastgpt:
