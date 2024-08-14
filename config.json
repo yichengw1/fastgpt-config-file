@@ -1,0 +1,92 @@
+{
+  "feConfigs": {
+    "lafEnv": "https://laf.dev" // laf环境。 https://laf.run （杭州阿里云） ,或者私有化的laf环境。如果使用 Laf openapi 功能，需要最新版的 laf 。
+  },
+  "systemEnv": {
+    "vectorMaxProcess": 15,
+    "qaMaxProcess": 15,
+    "pgHNSWEfSearch": 100 // 向量搜索参数。越大，搜索越精确，但是速度越慢。设置为100，有99%+精度。
+  },
+  "llmModels": [
+    {
+      "model": "deepseek-chat",
+    "name": "deepseek-chat",
+    "avatar": "/imgs/model/deepseek.svg",
+    "maxContext": 4000,
+    "maxResponse": 4000,
+    "quoteMaxToken": 2000,
+    "maxTemperature": 1,
+    "vision": false,
+    "defaultSystemChatPrompt": "",
+    "charsPointsPrice": 0,
+      "censor": false, // 是否开启敏感校验（商业版）
+      "vision": false, // 是否支持图片输入
+      "datasetProcess": true, // 是否设置为知识库处理模型（QA），务必保证至少有一个为true，否则知识库会报错
+      "usedInClassify": true, // 是否用于问题分类（务必保证至少有一个为true）
+      "usedInExtractFields": true, // 是否用于内容提取（务必保证至少有一个为true）
+      "usedInToolCall": true, // 是否用于工具调用（务必保证至少有一个为true）
+      "usedInQueryExtension": true, // 是否用于问题优化（务必保证至少有一个为true）
+      "toolChoice": true, // 是否支持工具选择（分类，内容提取，工具调用会用到。目前只有gpt支持）
+      "functionCall": false, // 是否支持函数调用（分类，内容提取，工具调用会用到。会优先使用 toolChoice，如果为false，则使用 functionCall，如果仍为 false，则使用提示词模式）
+      "customCQPrompt": "", // 自定义文本分类提示词（不支持工具和函数调用的模型
+      "customExtractPrompt": "", // 自定义内容提取提示词
+      "defaultSystemChatPrompt": "", // 对话默认携带的系统提示词
+      "defaultConfig":{}  // 请求API时，挟带一些默认配置（比如 GLM4 的 top_p）
+    },
+      {
+    "model": "qwen2",
+    "name": "qwen2",
+    "avatar": "/imgs/model/qwen.svg",
+    "maxContext": 4000,
+    "maxResponse": 4000,
+    "quoteMaxToken": 2000,
+    "maxTemperature": 1,
+    "vision": false,
+    "defaultSystemChatPrompt": "",
+    "charsPointsPrice": 0,
+      "censor": false, // 是否开启敏感校验（商业版）
+      "vision": false, // 是否支持图片输入
+      "datasetProcess": true, // 是否设置为知识库处理模型（QA），务必保证至少有一个为true，否则知识库会报错
+      "usedInClassify": true, // 是否用于问题分类（务必保证至少有一个为true）
+      "usedInExtractFields": true, // 是否用于内容提取（务必保证至少有一个为true）
+      "usedInToolCall": true, // 是否用于工具调用（务必保证至少有一个为true）
+      "usedInQueryExtension": true, // 是否用于问题优化（务必保证至少有一个为true）
+      "toolChoice": true, // 是否支持工具选择（分类，内容提取，工具调用会用到。目前只有gpt支持）
+      "functionCall": false, // 是否支持函数调用（分类，内容提取，工具调用会用到。会优先使用 toolChoice，如果为false，则使用 functionCall，如果仍为 false，则使用提示词模式）
+      "customCQPrompt": "", // 自定义文本分类提示词（不支持工具和函数调用的模型
+      "customExtractPrompt": "", // 自定义内容提取提示词
+      "defaultSystemChatPrompt": "", // 对话默认携带的系统提示词
+      "defaultConfig":{}  // 请求API时，挟带一些默认配置（比如 GLM4 的 top_p）
+  }
+  ],
+  "vectorModels": [
+    {
+      "model": "m3e",
+      "name": "M3E",
+      "price": 0.1,
+      "defaultToken": 500,
+      "maxToken": 1800
+    }
+  ],
+  "reRankModels": [],
+  "audioSpeechModels": [
+    {
+      "model": "tts-1",
+      "name": "OpenAI TTS1",
+      "charsPointsPrice": 0,
+      "voices": [
+        { "label": "Alloy", "value": "alloy", "bufferId": "openai-Alloy" },
+        { "label": "Echo", "value": "echo", "bufferId": "openai-Echo" },
+        { "label": "Fable", "value": "fable", "bufferId": "openai-Fable" },
+        { "label": "Onyx", "value": "onyx", "bufferId": "openai-Onyx" },
+        { "label": "Nova", "value": "nova", "bufferId": "openai-Nova" },
+        { "label": "Shimmer", "value": "shimmer", "bufferId": "openai-Shimmer" }
+      ]
+    }
+  ],
+  "whisperModel": {
+    "model": "whisper-1",
+    "name": "Whisper1",
+    "charsPointsPrice": 0
+  }
+}
